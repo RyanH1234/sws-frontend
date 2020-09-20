@@ -1,13 +1,29 @@
 <template>
-  <div class="login-container" v-show="show">
-    <label for="email"> Email : </label>
-    <input type="text" id="email" v-model="email" />
-
-    <label for="password"> Password: </label>
-    <input type="password" id="password" v-model="password" />
-
-    <button @click="login">Login</button>
-  </div>
+  <b-container>
+    <b-row class="justify-content-md-center mt-4">
+      <b-col col md="8">
+        <b-card
+          header="Smart Weather Station (SWS)"
+          header-bg-variant="primary"
+          header-text-variant="white"
+        >
+          <b-card-text>
+            <b-form>
+              <b-form-group description="Enter your email" label="Email">
+                <b-form-input v-model="email" required></b-form-input>
+              </b-form-group>
+              <b-form-group description="Enter your Password" label="Password">
+                <b-form-input v-model="password" type="password" required></b-form-input>
+              </b-form-group>
+              <b-form-group>
+                <b-button @click="login" type="submit" variant="outline-primary">Login</b-button>
+              </b-form-group>
+            </b-form>
+          </b-card-text>
+        </b-card>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>

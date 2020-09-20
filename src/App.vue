@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="app-container" v-if="isLoggedIn">
+      <Nav />
       <router-view></router-view>
     </div>
     <div class="app-container" v-else>
@@ -11,12 +12,15 @@
 
 <script>
 import Login from "@/components/Login/Login.vue";
+import Nav from "@/components/Nav/Nav";
+
 import { mapGetters } from "vuex";
 
 export default {
   name: "App",
   components: {
     Login,
+    Nav,
   },
   computed: {
     ...mapGetters(["isLoggedIn"]),
@@ -35,10 +39,11 @@ export default {
 }
 
 .app-container {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 </style>
