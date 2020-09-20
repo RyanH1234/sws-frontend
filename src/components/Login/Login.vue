@@ -60,7 +60,7 @@ export default {
 
           this.$axios.defaults.headers.common[
             "Authorization"
-          ] = `Bearer ${token}`;
+          ] = `Bearer ${token.token}`;
 
           this.$router.push({ name: "Dash" });
         })
