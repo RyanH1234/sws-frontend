@@ -36,6 +36,7 @@ export default {
   height: 100vh;
   width: 100vw;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  overflow: auto;
 }
 
 .app-container {

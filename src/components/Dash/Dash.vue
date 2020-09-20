@@ -26,19 +26,22 @@
       </div>
     </div>
 
-    <div class="graph">
-      Graph goes here..
-    </div>
+    <Graph />
   </div>
 </template>
 
 <script>
+import Graph from "@/components/Graph/Graph.vue";
+
 export default {
   data: () => {
     return {
       msg: "12",
       msg1: "22",
     };
+  },
+  components: {
+    Graph,
   },
 };
 </script>
@@ -156,15 +159,6 @@ export default {
   font-size: 12px;
 }
 
-.graph {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
 @media only screen and (max-width: 800px) {
   .tiles {
     height: 100%;
@@ -179,10 +173,6 @@ export default {
   .tile3,
   .tile4 {
     width: 100%;
-  }
-
-  .graph {
-    height: 400px;
   }
 }
 </style>

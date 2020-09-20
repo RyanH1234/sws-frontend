@@ -73,7 +73,7 @@ export default {
       if (token) {
         this.$axios.defaults.headers.common[
           "Authorization"
-        ] = `Bearer ${token}`;
+        ] = `Bearer ${token.token}`;
         this.setLoggedIn(true);
       } else {
         // prevent "glitching" of login screen
