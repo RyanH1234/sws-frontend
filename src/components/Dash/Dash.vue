@@ -1,5 +1,8 @@
 <template>
-  <div> <Button @click="logout()"> Logout </Button> </div>
+  <div> 
+  <Button class='logout' @click="logout()"> Logout </Button> 
+  <app-dash></app-dash>
+  </div>
 </template>
 
 <script>
@@ -16,3 +19,9 @@ export default {
   }
 }
 </script>
+
+<style scoped> 
+  .logout {
+    background-color: blue
+  }
+</style>
