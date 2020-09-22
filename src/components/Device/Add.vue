@@ -8,13 +8,17 @@
       </div>
     </div>
 
-    <div class="editable-device" v-if="showAddDevice">
-      <input type="text" placeholder="id" v-model="addDeviceId" />
-      <input type="text" placeholder="name" v-model="addDeviceName" />
-      <Button @click="saveDevice(addDeviceId, addDeviceName)">Add</Button>
+    <div class="devices">
+      <div class="editable-device" v-if="showAddDevice">
+        <input type="text" placeholder="id" v-model="addDeviceId" />
+        <input type="text" placeholder="name" v-model="addDeviceName" />
+        <Button @click="saveDevice(addDeviceId, addDeviceName)">Add</Button>
+      </div>
     </div>
 
-    <Button @click="addDevice()">Add Device</Button>
+    <div class="devices">
+      <Button @click="addDevice()">Add Device</Button>
+    </div>
   </div>
 </template>
 
@@ -49,7 +53,9 @@ export default {
       this.showAddDevice = true;
     },
     deleteDevice(did) {
-      const confirmation = window.confirm("Are you sure you want to delete this device?");
+      const confirmation = window.confirm(
+        "Are you sure you want to delete this device?"
+      );
       if (confirmation) {
         const url = "/user/device";
         const params = {
@@ -84,19 +90,27 @@ export default {
 </script>
 
 <style scoped>
-.devices {
+.app-content {
   margin-top: 40px;
+}
+
+.devices {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .devices .device,
 .editable-device {
+  width: 800px;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 20px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .device Button,
@@ -115,5 +129,11 @@ export default {
 
 Button {
   width: 100px;
+}
+
+@media only screen and (max-width: 800px) {
+  .device {
+    width: 100% !important;
+  }
 }
 </style>
