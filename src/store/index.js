@@ -7,6 +7,7 @@ const store = new Vuex.Store({
   state: {
     loggedIn: false,
     user: null,
+    currentPage: null,
   },
   getters: {
     isLoggedIn: (state) => {
@@ -15,6 +16,9 @@ const store = new Vuex.Store({
     getCurrentUser: (state) => {
       return state.user;
     },
+    getCurrentPage: (state) => {
+      return state.currentPage;
+    }
   },
   mutations: {
     setLoggedIn: (state, setTo) => {
@@ -23,6 +27,9 @@ const store = new Vuex.Store({
     setCurrentUser: (state, setTo) => {
       state.user = setTo;
     },
+    setCurrentPage: (state, setTo) => {
+      state.currentPage = setTo;
+    }
   }
 });
 

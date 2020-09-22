@@ -47,4 +47,11 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
+
+.app-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 </style>

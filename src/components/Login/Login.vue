@@ -38,7 +38,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["setLoggedIn"]),
+    ...mapMutations(["setLoggedIn", "setCurrentUser"]),
 
     storeTokenInCookie(token) {
       this.$cookies.set("token", token);
@@ -53,27 +53,29 @@ export default {
       this.$axios
         .post(url, { params })
         .then((resp) => {
-          const token = resp.data;
+          const user = resp.data;
 
+          this.setCurrentUser(user);
           this.setLoggedIn(true);
-          this.storeTokenInCookie(token);
+          this.storeTokenInCookie(user);
 
           this.$axios.defaults.headers.common[
             "Authorization"
-          ] = `Bearer ${token.token}`;
+          ] = `Bearer ${user.token}`;
 
-          this.$router.push({ name: "Dash" });
+          this.$router.push({ name: "dash" });
         })
         .catch((err) => {
           console.error(err);
         });
     },
     checkIfTokenExists() {
-      const token = this.$cookies.get("token");
-      if (token) {
+      const user = this.$cookies.get("token");
+      if (user) {
         this.$axios.defaults.headers.common[
           "Authorization"
-        ] = `Bearer ${token.token}`;
+        ] = `Bearer ${user.token}`;
+        this.setCurrentUser(user);
         this.setLoggedIn(true);
       } else {
         // prevent "glitching" of login screen

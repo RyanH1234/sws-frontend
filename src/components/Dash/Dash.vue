@@ -1,5 +1,5 @@
 <template>
-  <div class="dash-container">
+  <div class="app-content">
     <div class="tiles">
       <div class="tile1">
         <div class="header">Hello</div>
@@ -47,13 +47,6 @@ export default {
 </script>
 
 <style scoped>
-.dash-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 .tiles {
   width: 100%;
   display: flex;

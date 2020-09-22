@@ -1,13 +1,17 @@
 <template>
   <div class="nav-header">
     <div class="nav-container">
-      <div class="menu-item">
+      <div class="menu-item" @click="goTo('dash')" :class="{selected: getCurrentPage === 'dash'}">
         <a href="#">Dashboard</a>
       </div>
-      <div class="menu-item">
+      <div class="menu-item" @click="goTo('add')" :class="{selected: getCurrentPage === 'add'}">
         <a href="#">Add Device</a>
       </div>
-      <div class="menu-item">
+      <div
+        class="menu-item"
+        @click="goTo('analytics')"
+        :class="{selected: getCurrentPage === 'analytics'}"
+      >
         <a href="#">Data Analysis</a>
       </div>
     </div>
@@ -16,7 +20,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "navbar",
@@ -38,9 +42,15 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapGetters(["getCurrentPage"]),
+  },
   methods: {
-    ...mapMutations(["setLoggedIn"]),
-
+    ...mapMutations(["setLoggedIn", "setCurrentPage"]),
+    goTo(name) {
+      this.setCurrentPage(name);
+      this.$router.push({ name });
+    },
     logout() {
       this.$cookies.remove("token");
       this.setLoggedIn(false);
@@ -57,7 +67,6 @@ export default {
 .nav-header {
   width: 100%;
   background-color: #222;
-  padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -65,7 +74,7 @@ export default {
 }
 
 .nav-container {
-  height: 40px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,11 +83,18 @@ export default {
 
 .nav-container .menu-item {
   padding: 10px 20px;
-  position: relative;
-  text-align: center;
   border-bottom: 3px solid transparent;
   display: flex;
   transition: 0.4s;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected {
+  background-color: #444;
+  border-bottom: 3px solid #ff5858 !important;
 }
 
 .nav-container .menu-item.active,
