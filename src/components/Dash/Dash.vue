@@ -43,7 +43,6 @@ export default {
         const devices = resp.data;
         if (devices.length > 0) {
           this.deviceData = devices[0].device_data;
-          console.dir(this.deviceData);
         }
       });
     },

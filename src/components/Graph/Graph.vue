@@ -59,7 +59,6 @@ export default {
 
       if (granularity > 24) {
         return labels.map((label) => {
-          console.dir(label);
           const [date, time] = label.split("T");
           const [yyyy, mm, dd] = date.split("-");
           const [hh] = time.split(":");

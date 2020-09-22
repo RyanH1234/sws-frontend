@@ -45,7 +45,6 @@ export default {
         uid: user.id,
       };
       this.$axios.get(url, { params }).then((resp) => {
-        console.dir(resp.data);
         this.devices = resp.data;
       });
     },
