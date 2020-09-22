@@ -5,6 +5,9 @@
       <select id="attribute" v-model="selectedKey">
         <option v-for="(key,index) in graphKeys" :value="key" :key="index">{{ key }}</option>
       </select>
+      <Button> 1hr </Button>
+      <Button> 1 Day </Button>
+      <Button> 1 Wk </Button>
     </div>
     <div class="graph" style="overflow: auto">
       <line-chart :height="chartHeight" :chart-data="chartData" :options="chartOptions"></line-chart>
@@ -78,7 +81,8 @@ label {
 }
 
 .select-attribute label,
-.select-attribute select {
+.select-attribute select,
+Button {
   margin-left: 10px;
 }
 

@@ -86,7 +86,6 @@ export default {
 <style scoped>
 .devices {
   margin-top: 40px;
-  /* margin: 40px 0px 40px 0px; */
 }
 
 .devices .device,
