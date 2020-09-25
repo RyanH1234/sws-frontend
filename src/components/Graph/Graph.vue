@@ -106,7 +106,7 @@ export default {
       const key = this.selectedKey;
       if (key != null) {
         const data = this.graphData[key];
-        const y = data.map((d) => parseInt(d.value));
+        const y = data.map((d) => parseFloat(d.value));
         let x = data.map((d) => d.timestamp);
         x = this.formatXAxis(x);
 
