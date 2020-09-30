@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://localhost:8080/#/add -->
+<html lang="en">
+
+<head>
+  <style type="text/css">
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
+
+    #app {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      overflow: auto;
+      position: fixed;
+    }
+
+    .app-container {
+      width: 80%;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      background-color: rgb(204, 204, 204);
+      opacity: 90%;
+    }
+
+    .app-content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    .logout {
+      width: 130px;
+      padding: 10px;
+      letter-spacing: 5px;
+      background-color: #dbdbc3;
+      text-align: center;
+    }
+    .logout:hover {
+      background-color: rgba(233, 19, 19, 0.89);
+      color: white;
+    }
+
+    .spacehold {
+      height: 70px;
+      width: 140px;
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+    }
+
+    .nav-header {
+      width: 100%;
+      background-color: #222;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-container {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .nav-container .menu-item {
+      padding: 10px 20px;
+      border-bottom: 3px solid transparent;
+      display: flex;
+      transition: 0.4s;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .selected {
+      background-color: #444;
+      border-bottom: 3px solid #ff5858 !important;
+      opacity: 85%;
+    }
+
+    .nav-container .menu-item.active,
+    .nav-container .menu-item:hover {
+      background-color: #444;
+      border-bottom-color: #ff5858;
+    }
+
+    .nav-container .menu-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app-content .devices {
+      width: 100px;
+      height: 50px;
+      position: fixed;
+      bottom: 10%;
+      right: 45%;
+      font-size: 36px;
+      font-weight: 900;
+    }
+
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    .btn {
+      width: 180px;
+      height: 50px;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      background-color: #f1f1f1;
+      color: black;
+      font-size: 16px;
+      padding: 16px 30px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      background-color: #83898bcb;
+    }
+
+    .btn:hover {
+      background-color: rgba(33, 206, 56, 0.89);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <video autoplay muted loop id="myVideo">
+    <source src="http://thenewcode.com/assets/videos/mountain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div id="app">
+    <div class="app-container">
+      <div class="nav-header">
+        <div class="nav-container">
+          <div class="menu-item"><a href="http://localhost:8080/#">Dashboard</a></div>
+          <div class="menu-item selected"><a href="http://localhost:8080/#">Add Device</a></div>
+          <div class="menu-item"><a href="http://localhost:8080/#">Data Analysis</a></div>
+        </div>
+        <div class="spacehold">
+          <button class="logout">Logout</button>
+        </div>
+      </div>
+      <div data-v-60a0d110="" class="app-content">
+        <div data-v-60a0d110="" class="devices"></div>
+        <div data-v-60a0d110="" class="devices">
+        </div>
+        <div data-v-60a0d110="" class="devices"><button data-v-60a0d110="" class="btn">Add Device</button></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+
+    function myFunction() {
+      if (video.paused) {
+        video.play();
+        btn.innerHTML = "Pause";
+      } else {
+        video.pause();
+        btn.innerHTML = "Play";
+      }
+    }
+  </script>
+</body>
+
+</html>
