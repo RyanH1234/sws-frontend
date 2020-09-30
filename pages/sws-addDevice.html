@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style type="text/css">
     body,
     html {
@@ -37,7 +38,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      
+
     }
 
     .logout {
@@ -47,6 +48,7 @@
       background-color: #dbdbc3;
       text-align: center;
     }
+
     .logout:hover {
       background-color: rgba(233, 19, 19, 0.89);
       color: white;
@@ -151,7 +153,6 @@
 <body>
   <video autoplay muted loop id="myVideo">
     <source src="http://thenewcode.com/assets/videos/mountain.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
   </video>
 
   <div id="app">
@@ -163,7 +164,7 @@
           <div class="menu-item"><a href="http://localhost:8080/#">Data Analysis</a></div>
         </div>
         <div class="spacehold">
-          <button class="logout">Logout</button>
+          <button class="logout">Logout <i class="glyphicon glyphicon-user"></i></button>
         </div>
       </div>
       <div data-v-60a0d110="" class="app-content">
@@ -178,7 +179,6 @@
 
   <script>
     var video = document.getElementById("myVideo");
-    var btn = document.getElementById("myBtn");
 
     function myFunction() {
       if (video.paused) {
