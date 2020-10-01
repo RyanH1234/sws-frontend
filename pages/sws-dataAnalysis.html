@@ -29,8 +29,6 @@
       align-items: center;
       flex-direction: column;
       justify-content: center;
-      background-color: rgb(204, 204, 204);
-      opacity: 90%;
     }
 
     .app-content {
@@ -38,6 +36,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
+      background-color: rgba(204, 204, 204, 0.85);
     }
 
     .logout {
@@ -47,6 +46,7 @@
       background-color: #dbdbc3;
       text-align: center;
     }
+
     .logout:hover {
       background-color: rgba(233, 19, 19, 0.89);
       color: white;
@@ -62,7 +62,7 @@
 
     .nav-header {
       width: 100%;
-      background-color: #222;
+      background-color: rgba(34, 34, 34, 0.95);
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -70,11 +70,13 @@
     }
 
     .nav-container {
+      position: relative;
       height: 70px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: rgba(255, 255, 255, 0.8);
+
     }
 
     .nav-container .menu-item {
@@ -88,14 +90,15 @@
       align-items: center;
     }
 
-    .selected {
-      background-color: #444;
+    .nav-container .selected {
+      background-color: rgba(68, 68, 68, 0.8);
       border-bottom: 3px solid #ff5858 !important;
+
     }
 
     .nav-container .menu-item.active,
     .nav-container .menu-item:hover {
-      background-color: #444;
+      background-color: rgba(68, 68, 68, 0.8);
       border-bottom-color: #ff5858;
     }
 
@@ -119,9 +122,10 @@
       align-items: center;
     }
 
-    #label{
+    #label {
       margin-left: 10px;
     }
+
     .select-attribute select[data-v-18eaf6a6],
     Button[data-v-18eaf6a6] {
       margin-left: 10px;
@@ -137,19 +141,23 @@
       justify-content: center;
       align-items: center;
     }
+
     .device {
       border-radius: 5px;
       width: 80px;
       height: 40px;
       cursor: pointer;
     }
+
     .device:hover {
       background-color: rgba(33, 206, 56, 0.5);
       color: white;
     }
+
     #dropdown {
       width: 300px;
     }
+
     .graph-container[data-v-18eaf6a6] {
       width: 100%;
       height: 100%;
@@ -167,50 +175,50 @@
     <source src="http://thenewcode.com/assets/videos/mountain.mp4" type="video/mp4">
   </video>
 
-    <div id="app">
-      <div class="app-container">
-        <div class="nav-header">
-          <div class="nav-container">
-            <div class="menu-item"><a href="http://localhost:8080/#">Dashboard</a></div>
-            <div class="menu-item"><a href="http://localhost:8080/#">Add Device</a></div>
-            <div class="menu-item selected"><a href="http://localhost:8080/#">Data Analysis</a></div>
-          </div>
-          <div class="spacehold">
-            <button class="logout">Logout <i class="glyphicon glyphicon-user"></i></button>
-          </div>
+  <div id="app">
+    <div class="app-container">
+      <div class="nav-header">
+        <div class="nav-container">
+          <div class="menu-item"><a href="http://localhost:8080/#">Dashboard</a></div>
+          <div class="menu-item"><a href="http://localhost:8080/#">Add Device</a></div>
+          <div class="menu-item selected"><a href="http://localhost:8080/#">Data Analysis</a></div>
         </div>
-        <div class="app-content">
-          <div data-v-18eaf6a6="" class="graph-container">
-            <div data-v-18eaf6a6="" class="select-attribute"><label id="label">Select A
-                Device:</label><select data-v-18eaf6a6="" id="dropdown"></select><button data-v-18eaf6a6=""
-                class="device">1hr</button><button data-v-18eaf6a6="" class="device">24hrs</button><button data-v-18eaf6a6=""
-                class="device">1 Wk</button><label id="label">Select An Attribute:</label><select
-                data-v-18eaf6a6="" id="dropdown"></select></div>
-            <div data-v-18eaf6a6="" class="graph" style="overflow: auto;">
-              <div data-v-18eaf6a6="" class=""><canvas id="line-chart" width="400" height="180"></canvas></div>
-            </div>
+        <div class="spacehold">
+          <button class="logout">Logout <i class="glyphicon glyphicon-user"></i></button>
+        </div>
+      </div>
+      <div class="app-content">
+        <div data-v-18eaf6a6="" class="graph-container">
+          <div data-v-18eaf6a6="" class="select-attribute"><label id="label">Select A
+              Device:</label><select data-v-18eaf6a6="" id="dropdown"></select><button data-v-18eaf6a6=""
+              class="device">1hr</button><button data-v-18eaf6a6="" class="device">24hrs</button><button
+              data-v-18eaf6a6="" class="device">1 Wk</button><label id="label">Select An Attribute:</label><select
+              data-v-18eaf6a6="" id="dropdown"></select></div>
+          <div data-v-18eaf6a6="" class="graph" style="overflow: auto;">
+            <div data-v-18eaf6a6="" class=""><canvas id="line-chart" width="400" height="180"></canvas></div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
 
 
 
-    <script>
-      var video = document.getElementById("myVideo");
-  
-      function myFunction() {
-        if (video.paused) {
-          video.play();
-          btn.innerHTML = "Pause";
-        } else {
-          video.pause();
-          btn.innerHTML = "Play";
-        }
+  <script>
+    var video = document.getElementById("myVideo");
+
+    function myFunction() {
+      if (video.paused) {
+        video.play();
+        btn.innerHTML = "Pause";
+      } else {
+        video.pause();
+        btn.innerHTML = "Play";
       }
-    </script>
+    }
+  </script>
 
   <div id="GOOGLE_INPUT_CHEXT_FLAG" input=""
     input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}"
