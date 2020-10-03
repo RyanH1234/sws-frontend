@@ -3,29 +3,47 @@
     <div class="select-attribute">
       <label for="device">Select A Device:</label>
       <select id="device" v-model="selectedDevice">
-        <option v-for="(device, index) in devices" :value="device.id" :key="index">{{ device.name }}</option>
+        <option
+          v-for="(device, index) in devices"
+          :value="device.id"
+          :key="index"
+        >
+          {{ device.name }}
+        </option>
       </select>
 
-      <Button :class="{'selected-granularity': granularityHrs == 1}" @click="granularityHrs=1">1hr</Button>
+      <Button
+        :class="{ 'selected-granularity': granularityHrs == 1 }"
+        @click="granularityHrs = 1"
+        >1hr</Button
+      >
 
       <Button
-        :class="{'selected-granularity': granularityHrs == 24}"
-        @click="granularityHrs=24"
-      >24hrs</Button>
+        :class="{ 'selected-granularity': granularityHrs == 24 }"
+        @click="granularityHrs = 24"
+        >24hrs</Button
+      >
 
       <Button
-        :class="{'selected-granularity': granularityHrs == 168}"
-        @click="granularityHrs=168"
-      >1 Wk</Button>
+        :class="{ 'selected-granularity': granularityHrs == 168 }"
+        @click="granularityHrs = 168"
+        >1 Wk</Button
+      >
 
       <label for="attribute">Select An Attribute:</label>
       <select id="attribute" v-model="selectedKey">
-        <option v-for="(key,index) in graphKeys" :value="key" :key="index">{{ key }}</option>
+        <option v-for="(key, index) in graphKeys" :value="key" :key="index">
+          {{ key }}
+        </option>
       </select>
     </div>
 
     <div class="graph" style="overflow: auto">
-      <line-chart :height="chartHeight" :chart-data="chartData" :options="chartOptions"></line-chart>
+      <line-chart
+        :height="chartHeight"
+        :chart-data="chartData"
+        :options="chartOptions"
+      ></line-chart>
     </div>
   </div>
 </template>
@@ -55,22 +73,12 @@ export default {
   },
   methods: {
     formatXAxis(labels) {
-      const granularity = this.granularityHrs;
-
-      if (granularity > 24) {
-        return labels.map((label) => {
-          const [date, time] = label.split("T");
-          const [yyyy, mm, dd] = date.split("-");
-          const [hh] = time.split(":");
-          return `${dd}/${mm}/${yyyy} @ ${hh}:00`;
-        });
-      } else {
-        return labels.map((label) => {
-          const dateSplit = label.split("T");
-          const [hh, mm] = dateSplit[1].split(":");
-          return `${hh}:${mm}`;
-        });
-      }
+      return labels.map((label) => {
+        const [date, time] = label.split("T");
+        const [yyyy, mm, dd] = date.split("-");
+        const [hh, min] = time.split(":");
+        return `${dd}/${mm}/${yyyy} @ ${hh}:${min}`;
+      });
     },
     getDeviceData(hours) {
       let endLocal = new Date();
@@ -113,7 +121,12 @@ export default {
         this.chartData = {
           labels: x,
           datasets: [
-            { backgroundColor: "rgba(251, 167, 46, 0.2)", label: key, data: y, pointRadius: 0 },
+            {
+              backgroundColor: "rgba(251, 167, 46, 0.2)",
+              label: key,
+              data: y,
+              pointRadius: 0,
+            },
           ],
         };
       }
