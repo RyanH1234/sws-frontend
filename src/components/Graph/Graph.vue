@@ -95,8 +95,9 @@ export default {
       };
       this.$axios.post(url, params).then((resp) => {
         this.graphData = resp.data;
-        if (this.graphData.length === 0) {
+        if (Object.keys(this.graphData).length === 0) {
           this.graphKeys = [];
+          this.chartData = null;
           this.selectedKey = null;
         } else {
           this.graphKeys = Object.keys(this.graphData);
@@ -132,6 +133,7 @@ export default {
       }
     },
     granularityHrs() {
+      this.selectedKey = null;
       const hours = this.granularityHrs;
       this.getDeviceData(hours);
     },

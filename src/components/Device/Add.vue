@@ -4,7 +4,9 @@
       <div class="device" v-for="device in devices" :key="device.id">
         <div class="id">{{ device.id }}</div>
         <div class="name">{{ device.name }}</div>
-        <Button @click="deleteDevice(device.id)">Delete</Button>
+        <Button class="delete-device" @click="deleteDevice(device.id)"
+          >Delete</Button
+        >
       </div>
     </div>
 
@@ -12,12 +14,16 @@
       <div class="editable-device" v-if="showAddDevice">
         <input type="text" placeholder="id" v-model="addDeviceId" />
         <input type="text" placeholder="name" v-model="addDeviceName" />
-        <Button @click="saveDevice(addDeviceId, addDeviceName)">Add</Button>
+        <Button
+          class="save-device"
+          @click="saveDevice(addDeviceId, addDeviceName)"
+          >Add</Button
+        >
       </div>
     </div>
 
     <div class="devices">
-      <Button @click="addDevice()">Add Device</Button>
+      <Button class="add-device" @click="addDevice()">Add Device</Button>
     </div>
   </div>
 </template>
@@ -112,9 +118,28 @@ export default {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.device Button,
-.editable-device Button {
+.add-device {
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 10px;
+  background-color: white;
+  width: 125px;
+}
+
+.save-device {
   margin-left: auto;
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.delete-device {
+  margin-left: auto;
+  padding: 10px;
+  border: 2px solid #ff5858;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .device .id {

@@ -62,6 +62,16 @@ export default {
 <style>
 .logout {
   padding: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #222;
+  color: white;
+  border: 2px solid #ff5858;
+  transition: 0.2s all;
+}
+
+.logout:hover {
+  background-color: rgb(58, 58, 58);
 }
 
 .nav-header {

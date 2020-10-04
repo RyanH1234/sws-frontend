@@ -54,4 +54,12 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
+Button {
+  border: none;
+}
+
+Button:hover {
+  outline: none;
+}
 </style>
